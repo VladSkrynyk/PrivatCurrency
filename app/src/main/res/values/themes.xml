@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.PrivateCurrency" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <!-- Customize your theme here -->
+        <item name="colorPrimary">#121212</item> <!-- Dark primary color -->
+        <item name="colorPrimaryDark">#000000</item> <!-- Darker status bar color -->
+        <item name="colorAccent">#FF4081</item> <!-- Accent color for buttons, etc. -->
+        <item name="android:windowBackground">#121212</item>
+    </style>
+
+    <style name="Theme.PrivateCurrency" parent="Base.Theme.PrivateCurrency" />
+</resources>
