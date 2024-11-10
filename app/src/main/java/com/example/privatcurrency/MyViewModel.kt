@@ -4,13 +4,13 @@ package com.example.rolldice.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.rolldice.model.DiceModel
+// import com.example.rolldice.model.DiceModel
 import kotlinx.coroutines.*
 
 class DiceViewModel : ViewModel() {
 
-    private val _diceSides = MutableLiveData<DiceModel>()
-    val diceSides: LiveData<DiceModel> get() = _diceSides
+    //private val _diceSides = MutableLiveData<DiceModel>()
+    //val diceSides: LiveData<DiceModel> get() = _diceSides
 
     private val _isActiveRoll = MutableLiveData<Boolean>(true)
     val isActiveRoll: LiveData<Boolean> get() = _isActiveRoll
@@ -27,7 +27,7 @@ class DiceViewModel : ViewModel() {
             _isActiveStop.value = true
             rollingJob = coroutineScope.launch {
                 while (isActive) {
-                    _diceSides.value = DiceModel()
+                    //_diceSides.value = DiceModel()
                     delay(1_000)
                 }
             }
