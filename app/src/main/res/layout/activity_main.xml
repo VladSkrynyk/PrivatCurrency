@@ -7,56 +7,8 @@
     android:gravity="center"
     android:padding="16dp">
 
-    <!-- First Row with Three Dice Images -->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="10dp">
 
-        <ImageView
-            android:id="@+id/dice1"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            app:srcCompat="@drawable/dice_1" />
 
-        <ImageView
-            android:id="@+id/dice2"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="10dp"
-            app:srcCompat="@drawable/dice_2" />
-
-        <ImageView
-            android:id="@+id/dice3"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="10dp"
-            app:srcCompat="@drawable/dice_3" />
-    </LinearLayout>
-
-    <!-- Second Row with Two Dice Images -->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="20dp">
-
-        <ImageView
-            android:id="@+id/dice4"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            app:srcCompat="@drawable/dice_4" />
-
-        <ImageView
-            android:id="@+id/dice5"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="10dp"
-            app:srcCompat="@drawable/dice_5" />
-    </LinearLayout>
 
     <!-- Button Row -->
     <LinearLayout
@@ -72,19 +24,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/roll"
+            android:text="@string/start"
             android:backgroundTint="#3F51B5"
             android:textColor="#FFFFFF"/>
 
-        <Button
-            android:id="@+id/stopButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="10dp"
-            android:text="@string/stop"
-            android:backgroundTint="#E91E63"
-            android:textColor="#FFFFFF" />
+
 
     </LinearLayout>
 </LinearLayout>
