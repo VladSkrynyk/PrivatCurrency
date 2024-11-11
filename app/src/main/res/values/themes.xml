@@ -7,10 +7,10 @@
 
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <!-- Customize your theme here -->
-        <item name="colorPrimary">#121212</item> <!-- Dark primary color -->
-        <item name="colorPrimaryDark">#000000</item> <!-- Darker status bar color -->
+        <item name="colorPrimary">#2ECADB</item> <!-- Dark primary color -->
+        <item name="colorPrimaryDark">#1EBECC</item> <!-- Darker status bar color -->
         <item name="colorAccent">#FF4081</item> <!-- Accent color for buttons, etc. -->
-        <item name="android:windowBackground">#121212</item>
+        <item name="android:windowBackground">#24E2D9</item>
     </style>
 
     <style name="Theme.PrivateCurrency" parent="Base.Theme.PrivateCurrency" />

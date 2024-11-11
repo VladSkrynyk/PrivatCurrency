@@ -9,5 +9,4 @@ import retrofit2.http.Path;
 interface AndroidService {
     @GET("{key}")
     fun getAndroid(@Path("key") key: String?) : Call<AndroidItem?>?
-
 }
