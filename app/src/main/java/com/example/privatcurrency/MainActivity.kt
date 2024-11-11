@@ -1,14 +1,13 @@
 package com.example.privatcurrency
 
 import android.app.DatePickerDialog
+import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
-import java.text.SimpleDateFormat
-import java.util.*
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.privatcurrency.databinding.ActivityMainBinding
 import com.example.rolldice.viewmodel.MainViewModel
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<MainViewModel>()
@@ -41,10 +40,8 @@ class MainActivity : AppCompatActivity() {
                         return@DatePickerDialog
                     }
 
-                    // Format and display the selected date
-                    val dateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
-                    val formattedDate = dateFormat.format(selectedDate.time)
-                    binding.selectedDate.text = "Selected Date: $formattedDate"
+                    // Set the selected date in the ViewModel
+                    viewModel.setSelectedDate(selectedDate)
                 },
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
@@ -56,6 +53,11 @@ class MainActivity : AppCompatActivity() {
 
             // Show the date picker dialog
             datePickerDialog.show()
+        }
+
+        // Observe selectedDate to update the UI when the date is set
+        viewModel.selectedDate.observe(this) { date ->
+            binding.selectedDate.text = "Selected Date: $date"
         }
 
         // Observe changes in the currency list
