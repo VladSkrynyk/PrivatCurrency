@@ -2,12 +2,14 @@ package com.example.privatcurrency
 
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.privatcurrency.databinding.ActivityMainBinding
 import com.example.rolldice.viewmodel.MainViewModel
 import java.util.Calendar
+import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<MainViewModel>()
@@ -25,14 +27,9 @@ class MainActivity : AppCompatActivity() {
 
         // Observe currency list and update UI when data changes
         viewModel.currencyList.observe(this) {
-            if (it == null || it.isEmpty()) return@observe
+            if (it == null) return@observe
             with(binding) {
-                it[0].let { currencyItem ->
-                    ccy.text = currencyItem.ccy
-                    baseCcy.text = currencyItem.baseCcy
-                    buy.text = currencyItem.buy
-                    sale.text = currencyItem.sale
-                }
+                Log.d("XXX", "onCreate: $it")
             }
         }
 
