@@ -16,15 +16,6 @@
         android:orientation="horizontal"
         android:padding="10dp">
 
-        <Button
-            android:id="@+id/startButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/start"
-            android:backgroundTint="#3F51B5"
-            android:textColor="#FFFFFF"/>
-
         <!-- Add Button for Date Selection -->
         <Button
             android:id="@+id/selectDateButton"
