@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.privatcurrency.item.CurrencyObject
+import com.example.privatcurrency.item.ExchangeRate
 import com.example.privatcurrency.retrofit.RetrofitPrivate
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -17,6 +18,13 @@ class MainViewModel : ViewModel() {
 
     private val _selectedDate = MutableLiveData<String>()
     val selectedDate: LiveData<String> get() = _selectedDate
+
+    // LiveData for selected currency's buy and sell rates
+    private val _selectedBuyRate = MutableLiveData<String>()
+    val selectedBuyRate: LiveData<String> get() = _selectedBuyRate
+
+    private val _selectedSellRate = MutableLiveData<String>()
+    val selectedSellRate: LiveData<String> get() = _selectedSellRate
 
     init {
         val today = Calendar.getInstance()
@@ -37,5 +45,11 @@ class MainViewModel : ViewModel() {
         retrofitObject.getCurrencyExhange(date) { response ->
             _currencyList.postValue(response)
         }
+    }
+
+    // Function to update selected currency rates
+    fun setSelectedCurrencyRates(exchangeRate: ExchangeRate) {
+        _selectedBuyRate.value = exchangeRate.purchaseRate?.toString() ?: "N/A"
+        _selectedSellRate.value = exchangeRate.saleRate?.toString() ?: "N/A"
     }
 }

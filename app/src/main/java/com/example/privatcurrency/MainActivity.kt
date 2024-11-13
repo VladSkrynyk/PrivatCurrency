@@ -2,15 +2,14 @@ package com.example.privatcurrency
 
 import android.app.DatePickerDialog
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.privatcurrency.databinding.ActivityMainBinding
+import com.example.privatcurrency.item.ExchangeRate
 import com.example.rolldice.viewmodel.MainViewModel
 import java.util.Calendar
-import androidx.recyclerview.widget.LinearLayoutManager
-
 
 class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<MainViewModel>()
@@ -24,9 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         // Initialize RecyclerView and Adapter
         adapter = CurrencyAdapter(emptyList()) { exchangeRate ->
-            // Handle item click: Update buy and sell TextViews
-            binding.buy.text = "Buy Rate: ${exchangeRate.purchaseRate ?: "N/A"} UAH"
-            binding.sale.text = "Sell Rate: ${exchangeRate.saleRate ?: "N/A"} UAH"
+            viewModel.setSelectedCurrencyRates(exchangeRate)
         }
         binding.currencyRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.currencyRecyclerView.adapter = adapter
@@ -40,6 +37,14 @@ class MainActivity : AppCompatActivity() {
         // Observe selected date and display it
         viewModel.selectedDate.observe(this) { date ->
             binding.selectedDate.text = "Selected Date: $date"
+        }
+
+        // Observe buy and sell rates to keep them in sync with ViewModel
+        viewModel.selectedBuyRate.observe(this) { buyRate ->
+            binding.buy.text = "Buy Rate: $buyRate UAH"
+        }
+        viewModel.selectedSellRate.observe(this) { sellRate ->
+            binding.sale.text = "Sell Rate: $sellRate UAH"
         }
 
         // Date selection setup
