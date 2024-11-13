@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- res/values/colors.xml -->
+    <color name="selected_item_color">#FFEB3B</color> <!-- Yellow for selected -->
+    <color name="default_item_color">#24E2D9</color> <!-- White for default -->
+
 </resources>
+
